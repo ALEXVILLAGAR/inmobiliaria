@@ -38,46 +38,62 @@
             <br>
                 <br>
                     @if (isset($company))
-	@include('admin.company')
+    @include('admin.company')
 @else
-	@include('admin.persons')
+    @include('admin.persons')
 @endif
                     <script src="https://unpkg.com/vue">
                     </script>
+                    <script src="https://unpkg.com/vue-toasted">
+                    </script>
+                    <script>
+                        Vue.use(Toasted)
+                    </script>
                     <script>
                         var app = new Vue({
-		el: '#table_vue',
-		data:{
-			persons: {!! $persons->toJSON() !!}
-		},
+        el: '#table_vue',
+        data:{
+            persons: {!! $persons->toJSON() !!}
+        },
 
-		methods:{
-			activarUser: function(active){
-				$.ajax({
-					url:'/Person/Active/'+user,
-					type:'get',
-					success: function(response){
-						console.log(response['data']);
-					}
-				})
-			},
-			eliminarUser(user){
-				if(confirm('Eliminar este usuario')){
-					$.ajax({
-						url:'/User/destroy/'+user,
-						success: function(response){
-							location.reload(true);
-						}			
-					})
-				}
-			}
-		}
-	})
+        methods:{
+            activarUser: function(active){
+                $.ajax({
+                    url:'/Person/Active/'+user,
+                    type:'get',
+                    success: function(response){
+                        console.log(response['data']);
+                         Vue.toasted.show("usuario activado", { 
+     theme: "bubble", 
+     position: "top-right", 
+     duration : 30000
+});
+                    }
+                })
+            },
+            eliminarUser(user){
+                if(confirm('Eliminar este usuario')){
+                    $.ajax({
+                        url:'/User/destroy/'+user,
+                        success: function(response){
+                            location.reload(true);
+                           Vue.toasted.show("usuario eliminado", { 
+     theme: "bubble", 
+     position: "top-right", 
+     duration : 30000
+});
+                           
+                        }           
+                    })
+                }
+            }
+        }
+    })
                     </script>
                     @endsection
 
 
-	{{-- expr --}}
+    {{-- expr --}}
                     <script crossorigin="anonymous" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" src="https://code.jquery.com/jquery-3.2.1.slim.min.js">
                     </script>
                     <script crossorigin="anonymous" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js">
@@ -90,22 +106,22 @@
                     </script>
                     <script>
                         function activar(user){
-		$.ajax({
-			url:'/Person/Active/'+user,
-			type:'get',
-			success: function(response){
-				console.log(response['data']);
-			}
-		})
-	}
+        $.ajax({
+            url:'/Person/Active/'+user,
+            type:'get',
+            success: function(response){
+                console.log(response['data']);
+            }
+        })
+    }
 
-	$(document).ready(function(){
-		$("#persons").DataTable({
-			"processing":true,
-			"lenghtMenu":[[10,25,50,-1],[10,25,50,"ALL"]],
-			"language":{"url":"//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"},
-		});
-	});
+    $(document).ready(function(){
+        $("#persons").DataTable({
+            "processing":true,
+            "lenghtMenu":[[10,25,50,-1],[10,25,50,"ALL"]],
+            "language":{"url":"//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"},
+        });
+    });
                     </script>
                 </br>
             </br>

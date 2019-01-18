@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class HouseController extends Controller
 {
+
+    public function casas()
+    {
+        return House::all();
+
+    }
+
     /**
      * Display a listing of the resource.
      *

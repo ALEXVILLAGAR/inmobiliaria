@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::view('/inmuebles', 'inmuebles');
+Route::get('/inmuebles', 'PropertyController@index');
 
 Route::get('/propiedad_bodega', function () {
     return view('propiedad_bodega');

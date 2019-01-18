@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class PropertyController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +15,8 @@ class PropertyController extends Controller
      */
     public function index()
     {
-        //
+        $propiedades = Property::paginate(10);
+        return view('/inmuebles', compact('propiedades'));
     }
 
     /**

@@ -169,7 +169,7 @@
                                                 </i>
                                             </span>
                                             <div class="row m-0 align-items-center">
-                                                <div class="col-md-4 col-sm-12 p-0 bg-image" style='background-image:url("bg-1.jpg")'>
+                                                <div class="col-md-4 col-sm-12 p-0 bg-image" style='background-image:url("https://planner5d.com/files/s/52692/38057/5269238057ac8f9a576f17b535e00ca2_1.jpg")'>
                                                 </div>
                                                 <div class="col-md-8 col-sm-12 p-0">
                                                     <div class="row m-0">
@@ -245,7 +245,7 @@
                                                 </i>
                                             </span>
                                             <div class="row m-0 align-items-center">
-                                                <div class="col-md-4 col-sm-12 p-0 bg-image" style='background-image:url("bg-1.jpg")'>
+                                                <div class="col-md-4 col-sm-12 p-0 bg-image" style='background-image:url("https://planner5d.com/files/s/52692/38057/5269238057ac8f9a576f17b535e00ca2_1.jpg")'>
                                                 </div>
                                                 <div class="col-md-8 col-sm-12 p-0">
                                                     <div class="row m-0">

@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class DomesticPropertyController extends Controller
 {
+
+    public function detalles($id)
+    {
+        return DomesticProperty::where('id', '=', $id)->get;
+    }
+
     /**
      * Display a listing of the resource.
      *

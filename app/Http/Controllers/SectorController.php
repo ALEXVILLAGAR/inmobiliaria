@@ -7,6 +7,17 @@ use Illuminate\Http\Request;
 
 class SectorController extends Controller
 {
+
+    public function sectores()
+    {
+        return Sector::all();
+    }
+
+    public function detalles($id)
+    {
+        return Sector::where('id', '=', $id)->get();
+    }
+
     /**
      * Display a listing of the resource.
      *

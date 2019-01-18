@@ -17,15 +17,15 @@ class UserController extends Controller
         //
     }
 
-    public function active(Request $request,$id)
+    public function active(Request $request, $id)
     {
-        if($request->ajax()){
-            $user=User::find($id);
-            if($user!=null){
-                $user->active=!$user->active;
+        if ($request->ajax()) {
+            $user = User::find($id);
+            if ($user != null) {
+                $user->active = !$user->active;
                 $user->save();
-                $persons=Person::where('name','!=',null)->with('user')->get();
-                return response(['data'=>$persons]);
+                $persons = Person::where('name', '!=', null)->with('user')->get();
+                return response(['data' => $persons]);
             }
         }abort(404);
     }
@@ -91,12 +91,14 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request,$id)
+    public function destroy(Request $request, $id)
     {
+
         if ($request->ajax()) {
-            $user=User::find($id);
-            $user->delete();    //TODO deben eliminar todo lo q cree ese usuario, propiedades, imagenes etc etc
-            return response(['data'=>'done']);
+            $user = User::find($id);
+            $user->delete(); //TODO deben eliminar todo lo q cree ese usuario, propiedades, imagenes etc etc
+            $eliminado = 1;
+            return response(['data' => 'done', 'eliminado']);
         }
     }
 }

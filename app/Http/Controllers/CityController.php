@@ -7,6 +7,17 @@ use Illuminate\Http\Request;
 
 class CityController extends Controller
 {
+
+    public function ciudades()
+    {
+        return City::all();
+    }
+
+    public function detalles($id)
+    {
+        return City::where('id', '=', $id)->get();
+    }
+
     /**
      * Display a listing of the resource.
      *
